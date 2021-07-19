@@ -29,7 +29,7 @@ namespace AppGerenciamentoFrota.Domain
 
         public void InserirVeiculo(Veiculo veiculo)
         {
-            veiculo.NumeroPassageiro = SetarNumeroPassageiro(veiculo.Tipo);
+            veiculo.NumeroPassageiro = RetornaNumeroPassageiro(veiculo.Tipo);
 
             _frotaRepository.InserirNovoVeiculo(veiculo);
         }
@@ -43,8 +43,8 @@ namespace AppGerenciamentoFrota.Domain
         {
             return _frotaRepository.PesquisarVeiculoPorChassi(chassi);
         }
-
-        private byte SetarNumeroPassageiro(ETipoVeiculo tipo)
+        
+        public byte RetornaNumeroPassageiro(ETipoVeiculo tipo)
         {
             if (tipo.Equals(ETipoVeiculo.Onibus)) return 42;
 

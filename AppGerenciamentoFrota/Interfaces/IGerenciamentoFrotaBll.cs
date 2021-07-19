@@ -1,4 +1,5 @@
 ﻿using AppGerenciamentoFrota.Data.Entities;
+using AppGerenciamentoFrota.Enums;
 using System.Collections.Generic;
 
 namespace AppGerenciamentoFrota.Infra
@@ -10,5 +11,6 @@ namespace AppGerenciamentoFrota.Infra
         void DeletarVeiculo(Veiculo veiculo);
         List<Veiculo> ListarVeiculos();
         Veiculo PesquisarVeiculoPorChassi(string chassi);
+        byte RetornaNumeroPassageiro(ETipoVeiculo tipo);
     }
 }
