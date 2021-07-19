@@ -33,15 +33,12 @@ namespace AppGerenciamentoFrota
                 .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
                 .AddJsonFile("appsettings.json",optional:false,reloadOnChange:true)
                 .AddJsonFile($"appsettings.{environmentVariable}.json",optional:true,reloadOnChange:true)
-                .Build();
-
+                .Build();          
 
             serviceCollection.AddDbContext<GerenciamentoFrotaContext>(options =>
-               options.UseSqlServer(configuration.GetConnectionString("DbFrotaContext")));
+               options.UseSqlite(configuration.GetConnectionString("SqliteConnectionString")));
 
             InjectorBootStrapper.Inicializar(serviceCollection);
-
-
         }
     }
 }

@@ -88,7 +88,7 @@ namespace AppGerenciamentoFrota
                 if (_frotaBll.PesquisarVeiculoPorChassi(chassi) != null)
                 {
                     Console.WriteLine("O chassi do veículo informado ja existe!");
-                    MontarMenu();
+                    return;
                 }
 
                 Console.Write("Informe o Tipo do Veículo (1 = Ônibus; 2 = Caminhão):");
@@ -124,7 +124,7 @@ namespace AppGerenciamentoFrota
                 if (veiculos.Count.Equals(0))
                 {
                     Console.WriteLine("Não existem nenhum veículo cadastrado");
-                    MontarMenu();
+                    return;
                 }
 
                 veiculos.ForEach(v => {
@@ -160,6 +160,7 @@ namespace AppGerenciamentoFrota
                 if (veiculo == null)
                 {
                     Console.WriteLine("Não existe nenhum veículo para o chassi informado.");
+                    return;
                 }
                 else
                 {
@@ -189,6 +190,7 @@ namespace AppGerenciamentoFrota
                 if (veiculo == null)
                 {
                     Console.WriteLine("Não existe nenhum veículo para o chassi informado.");
+                    return;
                 }
                 else
                 {
@@ -231,6 +233,7 @@ namespace AppGerenciamentoFrota
                 if (veiculo == null)
                 {
                     Console.WriteLine("Não existe nenhum veículo para o chassi informado.");
+                    return;
                 }
                 else
                 {
