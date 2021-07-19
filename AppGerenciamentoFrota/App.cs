@@ -33,11 +33,11 @@ namespace AppGerenciamentoFrota
         {
             
             Console.WriteLine("Informe a opção desejada:");
-            Console.WriteLine("1 - Inserir Veiculo");
-            Console.WriteLine("2 - Editar Veiculo");
-            Console.WriteLine("3 - Deletar Veiculo");
+            Console.WriteLine("1 - Inserir Veículo");
+            Console.WriteLine("2 - Editar Veículo");
+            Console.WriteLine("3 - Deletar Veículo");
             Console.WriteLine("4 - Listar Todos Veiculos");
-            Console.WriteLine("5 - Pesquisar Veiculo Por Chassi");
+            Console.WriteLine("5 - Pesquisar Veículo Por Chassi");
             Console.WriteLine("6 - Sair do Sistema");
 
             var opcao = Console.ReadLine();
@@ -82,7 +82,7 @@ namespace AppGerenciamentoFrota
 
             try
             {
-                Console.Write("Informe o Chassi do Veiculo:");
+                Console.Write("Informe o Chassi do Veículo:");
                 var chassi = Console.ReadLine();
 
                 if (_frotaBll.PesquisarVeiculoPorChassi(chassi) != null)
@@ -91,9 +91,9 @@ namespace AppGerenciamentoFrota
                     MontarMenu();
                 }
 
-                Console.Write("Informe o Tipo do Veiculo (1 = Ônibus; 2 = Caminhão):");
+                Console.Write("Informe o Tipo do Veículo (1 = Ônibus; 2 = Caminhão):");
                 var tipo = Console.ReadLine();
-                Console.Write("Informe a Cor do Veiculo:");
+                Console.Write("Informe a Cor do Veículo:");
                 var cor = Console.ReadLine();
 
                 _frotaBll.InserirVeiculo(new Veiculo
@@ -103,7 +103,7 @@ namespace AppGerenciamentoFrota
                     Cor = cor
                 });
 
-                Console.WriteLine("Veiculo adicionado com Sucesso!");                
+                Console.WriteLine("Veículo adicionado com Sucesso!");                
             }
             catch (Exception ex)
             {
@@ -200,7 +200,7 @@ namespace AppGerenciamentoFrota
                     {
                         case "S":
                             _frotaBll.DeletarVeiculo(veiculo);
-                            Console.WriteLine("Veiculo excluído com Sucesso");
+                            Console.WriteLine("Veículo excluído com Sucesso");
                             break;
 
                         default:
@@ -235,7 +235,7 @@ namespace AppGerenciamentoFrota
                 else
                 {
                     Console.WriteLine($"CHASSI: {veiculo.Chassi};COR: {veiculo.Cor};TIPO: {veiculo.Tipo.GetDescription()};NÚMERO PASSAGEIROS: {veiculo.NumeroPassageiro}");
-                    Console.Write("Só é possivel alterar a Cor do Veiculo, qual a nova cor:");
+                    Console.Write("Só é possivel alterar a Cor do Veículo, qual a nova cor:");
                     var cor = Console.ReadLine();
 
                     veiculo.Cor = cor;
@@ -255,6 +255,7 @@ namespace AppGerenciamentoFrota
 
         private void SairAplicacao()
         {
+            LimparConsole();
             Console.Write("Deseja Realmente sair da Aplicação (S/N)?");
             var resposta = Console.ReadLine();
 
